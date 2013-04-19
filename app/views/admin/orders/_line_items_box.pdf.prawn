@@ -2,7 +2,7 @@ if @hide_prices
   @column_widths = { 0 => 100, 1 => 165, 2 => 75, 3 => 75 } 
   @align = { 0 => :left, 1 => :left, 2 => :right, 3 => :right }
 else
-  @column_widths = { 0 => 75, 1 => 205, 2 => 75, 3 => 50, 4 => 75, 5 => 60 } 
+  @column_widths = { 0 => 85, 1 => 195, 2 => 75, 3 => 50, 4 => 75, 5 => 60 } 
   @align = { 0 => :left, 1 => :left, 2 => :left, 3 => :right, 4 => :right, 5 => :right}
 end
 
@@ -31,7 +31,7 @@ bounding_box [0,cursor], :width => 540, :height => 430 do
     move_down 2
     content = []
     @order.line_items.each do |item|
-      row = [ item.variant.product.sku, item.variant.product.name]
+      row = [ item.variant.sku, item.variant.product.name]
       row << variant_options(item.variant)
       row << number_to_currency(item.price) unless @hide_prices
       row << item.quantity
