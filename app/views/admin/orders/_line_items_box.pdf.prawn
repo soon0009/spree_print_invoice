@@ -32,7 +32,7 @@ bounding_box [0,cursor], :width => 540, :height => 430 do
     content = []
     @order.line_items.each do |item|
       row = [ item.variant.sku, item.variant.product.name]
-      row << variant_options(item.variant)
+      row << variant_options(item.variant, true)
       row << number_to_currency(item.price) unless @hide_prices
       row << item.quantity
       row << number_to_currency(item.price * item.quantity) unless @hide_prices
